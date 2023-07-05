@@ -12,7 +12,7 @@ def generate_files():
             file_list.append(file_dict)
     return file_list
 
-if __name__ == "__main__":
-    files = generate_files()
-    for file in files:
-        print(file)
+
+files = generate_files()
+for file in files:
+    print(file)
