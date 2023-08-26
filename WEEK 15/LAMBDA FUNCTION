@@ -1,0 +1,20 @@
+import json
+import boto3
+from datetime import datetime
+
+def lambda_handler(event, context):
+    
+    # Get the current time
+    now = datetime.now()
+    time = now.strftime("%H:%M:%S")
+
+    # Create an SQS client
+    sqs = boto3.client('sqs')
+
+    # Send a message to the SQS queue (use the queue URL we obtained earlier)
+    sqs.send_message(QueueUrl="https://sqs.us-east-2.amazonaws.com/395093661232/WAKEUP", MessageBody=time)
+
+    return {
+        'statusCode': 200,
+        'body': json.dumps('WAKEUPPPPPPP')
+    }
